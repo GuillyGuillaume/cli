@@ -34,6 +34,19 @@ The `commands` submodule depends on every other module in the `lib` module.
 
 ### Common processing
 
+The common processes are handeling configuration parameters, check for authorization and excecuding commands.
+
+Configuration parameters are structure in a layered heirarchy based on their priority.
+Sorted by priority, the config parameter contains ...
+
+Command Line Flags are placed using the command line to set specific configuration parameters. This is done by providing a `--foo bar`, configurating the parameter `foo` to variable `bar`. 
+
+Environment Variables are configured within `scripts`. This is done by providing a `npm_config_foo=bar`, configurating the parameter `foo` to variable `bar`.
+
+npmrc Files are config files of ini-formated list of `key = val` parameters. The four relevant npmrc files are per-project, per-user, global and built-in config files. 
+
+Default Configs are a set of configuration parameters that are internal to npm, and are defaults if nothing else is specified.
+
 ### Standardization of design
 
 ### Standardization of testing
