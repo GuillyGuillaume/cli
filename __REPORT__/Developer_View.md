@@ -45,7 +45,11 @@ Environment Variables are configured within `scripts`. This is done by providing
 
 npmrc Files are config files of an ini-formatted of `key = val` parameters. The four relevant npmrc files are per-project, per-user, global and built-in config files. 
 
-Default Configs are a set of configuration parameters that are internal to npm, and are defaults if nothing else is specified.
+Default Configs are a set of configuration parameters that are internal to npm, and are defaults if nothing else is specified. 
+
+npm uses a single sign-on authentication method (SSO).
+
+All npm commands are located within the commands library (./cli/lib/commands) and can be executed within the CLI using `npm command`. Command errors are written to a debug log based on the config parameter of `loglevel`.Documentation for npm commands are auto-generated and can be found [here](https://docs.npmjs.com/cli/v8/commands).
 
 ### Standardization of design
 
@@ -61,3 +65,7 @@ This eases the production of both smoke and unit tests considerably.
 Finally, tests are automated via github actions to facilitate Continuous Integration.
 
 ### Instrumentation
+
+The `npm` CLI has various methods for logging information back to end-users for commands, configurations and environments.
+
+`loglevel` is a global configuration that can be set to determine the type of information to be displayed. `loglevel` values include several types of logs which are written to a debug log, with the file paths printed if the execution of a command fails.
