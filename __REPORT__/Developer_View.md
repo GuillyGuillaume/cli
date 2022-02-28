@@ -38,4 +38,13 @@ The `commands` submodule depends on every other module in the `lib` module.
 
 ### Standardization of testing
 
+The npm CLI utilized multiple testing methods.
+Smoke testing assesses an overview of the most common npm commands, while unit testing provides more coverage at the cost of being a more resource intensive testing suite to run.
+
+`tap-snapshots` are used to automatically create valid outputs to compare to test output.
+The testing programmer generates one such valid output by capturing the output of a command when they know the output to be correct, and then subsequent executions of test suites for that command will have their output compared to the snapshot.
+This eases the production of both smoke and unit tests considerably.
+
+Finally, tests are automated via github actions to facilitate Continuous Integration.
+
 ### Instrumentation
