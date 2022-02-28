@@ -15,6 +15,17 @@
 
 - **Single Responsibility Principle**: Each element is responsible to one and only one actor as is responsible for one simple task. This improves debuggability.
 
+- There are clear boundaries between different components.
 
+- In general, auth is only responsible for the credentials. 
+- Commands are the set of resources for achieving functionalities. 
+- Util is composed of a set of developing tools for commands.
+- Search is only responsible for searching functionality in the commands resources. 
+- Workspace is solely responsible for the actual user-interface implementation.
+
+It is like a precise machine that consists of parts for different functionalities. And there is a clear division of responsibilities and goals between them. It is easier to understand, maintain and is more reusable. 
 
 - **Open-closed principle**: The architecture scales seamlessly; can add functionality without modifying the code. E.g., npm usage is auto-generated for each new command (cli/scripts/config-doc-command.js).
+
+Open-close principle says “software entities should be open for extension, but closed for modification”
+The whole idea of npm is to better manage the node.js packages. The functionality “install” helps users to install more dependencies. The “install” functionality opens for possibilities to extend. And Search facilitates users to look up and manage dependencies. However, the development side of npm cli is closed to users. Users could not modify the util component. They can’t use these tools to develop more packages or functionalities. In this way, the npm cli maintains the design modules the same. But when there are new situations, you could just extend the behavior to more modules. It have stability and flexibility at the same time.
