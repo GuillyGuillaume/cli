@@ -16,7 +16,6 @@
 - **Single Responsibility Principle**: Each element is responsible to one and only one actor as is responsible for one simple task. This improves debuggability.
 
 - There are clear boundaries between different components.
-
 - In general, auth is only responsible for the credentials. 
 - Commands are the set of resources for achieving functionalities. 
 - Util is composed of a set of developing tools for commands.
@@ -27,5 +26,13 @@ It is like a precise machine that consists of parts for different functionalitie
 
 - **Open-closed principle**: The architecture scales seamlessly; can add functionality without modifying the code. E.g., npm usage is auto-generated for each new command (cli/scripts/config-doc-command.js).
 
-Open-close principle says “software entities should be open for extension, but closed for modification”
+Open-closed principle says “software entities should be open for extension, but closed for modification”
 The whole idea of npm is to better manage the node.js packages. The functionality “install” helps users to install more dependencies. The “install” functionality opens for possibilities to extend. And Search facilitates users to look up and manage dependencies. However, the development side of npm cli is closed to users. Users could not modify the util component. They can’t use these tools to develop more packages or functionalities. In this way, the npm cli maintains the design modules the same. But when there are new situations, you could just extend the behavior to more modules. It have stability and flexibility at the same time.
+
+- **Interface Segregation Principle**. Interfaces are not cluttered with unnecessary methods. In a sense te codebase is designed a minimalistic manner because each function only implements the methods and parameters that it needs. This way, the user isn't coerced to implement useless code.
+- ISP says that the client should not be forced to implement/depend on methods that are not used. Examples of modules that follow this principle are access, adduser, and birthday (in the commands directory).
+
+- **Dependency Inversion Principle**. Low-level modules depend on high-level modules, and not on abstractions thus violating the principle. 
+
+- DIP states that high-level modules _and_ low-level modules should depend on abstractions. Also, abstractions should not depend on details. Details should depend on abstractions. Our codebase has numerous examples of this: High-level modules such as base-command and arborist-cmd are easily reusable and are not affected by modification to low-level modules.
+- Many lower-level modules rely heavily on base-command. There in no "middle man" interface.
