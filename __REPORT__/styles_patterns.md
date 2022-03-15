@@ -6,13 +6,14 @@
 
 Design Pattern [style] in which separate components of an app are separated into standalone services that communicate by defined protocols (HTTPS). i.e., data sources communicate with only one service.
 
-App operations are split into separata machines (hardware) that perform specialized tasks. Makes for a very robust architecture: A failure in one part of the system is isolated from the other parts.
+App operations are split into separata machines (hardware) that perform specialized tasks. SOA makes for a very robust architecture. In other words, a failure in one part of the system is isolated from the other parts.
 
 When to use: All elements within interface are implemented even when they are not needed (violating Interface Segregation Principle)
 
 | ![SOA](images/SOA_diagram.png) |
 | :-: |
 | Figure x.2: Basic diagram of SOA |
+
 
 ### Software Design Patterns
 
